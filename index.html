@@ -1,47 +1,59 @@
-<style type="text/css">
-    h1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        font-size: 16vw;
-        margin: 0 auto;
-    }
-</style>
-<h1></h1>
-<script type="text/javascript">
-    const queryParams = new URLSearchParams(window.location.search);
-    let tempo = parseInt(queryParams.get('t'), 10) || 20;
-    let minor = queryParams.get('m') || false;
-    let seventh = queryParams.get('s') || false;
-    let diminished = queryParams.get('d') || false;
-    let chordText = document.querySelector('h1');
-    let intervalID = setInterval(changeChords, 1000 / (tempo / 60));
-    let notes = [
-        "C",
-        "C#",
-        "Db",
-        "D",
-        "D#",
-        "Eb",
-        "E",
-        "F",
-        "F#",
-        "Gb",
-        "G",
-        "G#",
-        "Ab",
-        "A",
-        "A#",
-        "Bb",
-        "B"
-    ];
-
-    function changeChords(){
-        let randomNote = Math.floor(Math.random() * notes.length);
-        let randomMinor = minor ? ( Math.round(Math.random()) ? 'm' : '' ) : '';
-        let randomSeventh = seventh ? ( Math.round(Math.random()) ? '7' : '' ) : '';
-        let randomDiminished = diminished ? Math.round(Math.random()) : '';
-        chordText.innerHTML = notes[randomNote] + (randomDiminished ? '°' : randomMinor + randomSeventh);
-    }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chords</title>
+</head>
+<body>
+    <style type="text/css">
+        html, body, h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 16vw;
+            margin: 0 auto;
+        }
+    </style>
+    <h1></h1>
+    <script type="text/javascript">
+        const queryParams = new URLSearchParams(window.location.search);
+        const tempo = parseInt(queryParams.get('t'), 10) || 20;
+        const minor = queryParams.get('m') || false;
+        const seventh = queryParams.get('s') || false;
+        const diminished = queryParams.get('d') || false;
+        const chordText = document.querySelector('h1');
+        const intervalID = setInterval(changeChords, 1000 / (tempo / 60));
+        const notes = [
+            "C",
+            "C#",
+            "Db",
+            "D",
+            "D#",
+            "Eb",
+            "E",
+            "F",
+            "F#",
+            "Gb",
+            "G",
+            "G#",
+            "Ab",
+            "A",
+            "A#",
+            "Bb",
+            "B"
+        ];
+        
+        changeChords();
+    
+        function changeChords(){
+            const randomNote = Math.floor(Math.random() * notes.length);
+            const randomMinor = minor ? ( Math.round(Math.random()) ? 'm' : '' ) : '';
+            const randomSeventh = seventh ? ( Math.round(Math.random()) ? '7' : '' ) : '';
+            const randomDiminished = diminished ? Math.round(Math.random()) : '';
+            chordText.innerHTML = notes[randomNote] + (randomDiminished ? '°' : randomMinor + randomSeventh);
+        }
+    </script>
+</body>
+</html>
