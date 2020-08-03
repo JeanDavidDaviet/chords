@@ -1,0 +1,26 @@
+{
+  "name": "chords",
+  "version": "0.0.1",
+  "description": "Display random chords to train",
+  "main": "progression.html",
+  "scripts": {
+    "start": "parcel progression.html --open",
+    "prebuild": "rm -rf dist",
+    "build": "parcel build progression.html -o index.html --public-url /progression"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "parcel-bundler": "^1.6.1",
+    "typescript": "^3.9.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeanDavidDaviet/chords.git"
+  },
+  "author": "Jean-David Daviet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeanDavidDaviet/chords/issues"
+  },
+  "homepage": "https://github.com/JeanDavidDaviet/chords#readme"
+}
